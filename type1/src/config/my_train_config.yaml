@@ -1,0 +1,13 @@
+# load default config values
+defaults:
+  - optimizer: sgd
+  - scheduler: reduce_lr_on_plateau  # use 'reduce_lr_on_plateau' as scheduler
+  - _self_
+
+
+optimizer:
+  momentum: 0.8  # overwite some configs from default
+
+scheduler:  # overwite some configs from default
+  mode: max
+  factor: 0.2

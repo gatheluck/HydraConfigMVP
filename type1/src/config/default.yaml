@@ -1,0 +1,4 @@
+defaults:
+  - optimizer: sgd
+  - scheduler: cosine_annealing_lr
+  - _self_
