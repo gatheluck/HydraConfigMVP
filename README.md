@@ -38,9 +38,39 @@ $ poetry run python src/train.py  # all loaded config values are shown.
 $ poetry run python src/train.py --help  # hydra will show list of overwritable configs. 
 ``` 
 
+## Situation
+In this MVP, considering to specify only configs about `optimizer` and `scheduler` like bellow.
+
+- optimizer
+    - sgd
+        - lr
+        - momentum
+        - weight_decay
+        - dampening
+        - nesterov
+
+- scheduler
+    - cosine_annealing_lr
+        - T_max
+        - eta_min
+        - last_epoch
+    - reduce_lr_on_plateau
+        - mode
+        - factor
+        - patience
+        - threshold
+        - threshold_mode
+        - cooldown
+        - min_lr
+        - eps
+
+For all items, default values are set. And some config values are overwritten from default value by `my_train_config.yaml`. For fair comparison, both types describe exactly same situation (They overwrite exactly same config items).
+
 ## Comparison
 
 ### Default config values
+In this section, compare the differece of how to store the default config values.
+
 #### Type 1
 Default config values are stored as hierarchical multiple yaml files under `type1/config/`.
 ```
@@ -59,6 +89,8 @@ config
 ``` 
 
 ### Overwrite config values
+In this section, compare the differece of how to overwrite the some config values from defaults.
+
 #### Type 1
 If you want to overwrite some config values, add additional sigle yaml file (`my_train_config.yaml`) under `config` directory.
 ```
