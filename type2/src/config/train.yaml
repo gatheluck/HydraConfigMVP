@@ -1,0 +1,52 @@
+# _self_ should be written before to allow overwriting _self_ values.
+defaults:
+    - _self_
+    - train_config: default
+
+
+# set default config values.
+train_config:
+    # ----------------------------------------------------------------------------------- #
+    # optimizer related configs
+    # ----------------------------------------------------------------------------------- #
+    optimizer:
+        # name of default optimizer
+        name: "sgd"
+
+        # ----------------------------------------------------------------------------------- #
+        # stochastic gradient descent
+        # ----------------------------------------------------------------------------------- #
+        sgd:
+            lr: 0.1
+            momentum: 0.9
+            weight_decay: 0.0005
+            dampening: 0.0
+            nesterov: True
+
+    # ----------------------------------------------------------------------------------- #
+    # scheduler related configs
+    # ----------------------------------------------------------------------------------- #
+    scheduler:
+        # name of default scheduler
+        name: "cosine_annealing_lr"
+
+        # ----------------------------------------------------------------------------------- #
+        # cosine annealing learning rate schedule
+        # ----------------------------------------------------------------------------------- #
+        cosine_annealing_lr:
+            T_max: 90
+            eta_min: 0
+            last_epoch: -1
+
+        # ----------------------------------------------------------------------------------- #
+        # reduce learning rate when a metric has stopped improving
+        # ----------------------------------------------------------------------------------- #
+        reduce_lr_on_plateau:
+            mode: min
+            factor: 0.1
+            patience: 10
+            threshold: 0.0001
+            threshold_mode: rel
+            cooldown: 0
+            min_lr: 0
+            eps: 1e-08
