@@ -205,3 +205,6 @@ train_config:
       min_lr: 0
       eps: 1.0e-08
 ``` 
+
+## Remarks
+- If you apply type check to loaded config value by [hydra schema](https://hydra.cc/docs/tutorials/structured_config/schema), type 1 is needed.
